@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sotib olish</title>
+  <link rel="stylesheet" href="./buy.css"> <!-- Link to your shared styles -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.4/dist/ionicons.js"></script>
+</head>
+<body>
+
+  <header class="buy-header">
+    <h1 class="buy-header-title">Sotib olish</h1>
+  </header>
+
+  <!-- Purchase Form Section -->
+  <section class="buy-form-section">
+    <h2 class="buy-form-title">Buyurtma qilish</h2>
+    <form id="buyForm" class="buy-form">
+      <label for="fullName" class="buy-form-label">To'liq ism:</label>
+      <input type="text" id="fullName" name="fullName" required class="buy-form-input">
+
+      <label for="email" class="buy-form-label">Email:</label>
+      <input type="email" id="email" name="email" required class="buy-form-input">
+
+      <label for="phone" class="buy-form-label">Telefon raqami:</label>
+      <input type="tel" id="phone" name="phone" required class="buy-form-input">
+
+      <label for="address" class="buy-form-label">Yetkazib berish manzili:</label>
+      <input type="text" id="address" name="address" required class="buy-form-input">
+
+      <button type="submit" class="buy-form-button">Buyurtma berish</button>
+    </form>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div id="orderModal" class="buy-modal">
+    <div class="buy-modal-content">
+      <p class="buy-modal-text">Sizning buyurtmangiz qabul qilindi. Tez orada bizning operatorlarimiz bog'lanadi.</p>
+      <button id="closeModal" class="buy-modal-button">Yopish</button>
+    </div>
+  </div>
+
+  <script src="buy.js"></script>
+</body>
+</html>

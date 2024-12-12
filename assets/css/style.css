@@ -172,7 +172,7 @@ body {
 .h1 {
   font-size: var(--size40);
   font-weight: var(--light);
-  width: 500px;
+   
   line-height: 1.5;
 }
 
@@ -234,6 +234,7 @@ body {
 .section {
   padding-block-end: var(--section-spacing);
   overflow: hidden;
+
 }
 
 .logo {
@@ -405,9 +406,15 @@ body {
 }
 
 .navbar-list {
-  font-size: 36px;
+  font-size: 30px;
   margin-block-start: 50px;
   margin-inline-start: 10px;
+  
+}
+
+
+.navbar-item{
+  color: red !important;
 }
 
 .navbar-link {
@@ -468,6 +475,7 @@ body {
 .work-list {
   display: grid;
   gap: 60px;
+  
 }
 
 .work-item {
@@ -1107,6 +1115,7 @@ body {
   .work-item {
     display: grid;
     grid-template-columns: 1fr 0.9fr;
+    margin: 100px 0;
   }
 
   .workBox-right {
@@ -1168,10 +1177,6 @@ body {
 }
 
 
-
- 
- 
-
 .hero-content {
   display: flex;
   justify-content: space-between; /* Matn va rasm orasini ajratadi */
@@ -1186,7 +1191,32 @@ body {
  
 
 
- 
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column; /* Elementlarni ustma-ust joylashtiradi */
+    text-align: center; /* Matnni markazlashtiradi */
+  }
+
+  .hero-img {
+    margin: 20px 0; /* Mobil qurilmada rasmga joy qoldiradi */
+    max-width: 80%; /* Kengligini moslashtiradi */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .hlt{
   color: red !important;
@@ -1227,7 +1257,6 @@ body {
   height: auto;
   object-fit: cover;
   margin-left: 20px;
-  transform: scale(1.6);
  
 }
 
@@ -1244,6 +1273,16 @@ body {
     margin: 152px 0px;
     
   }
+
+  .section{
+    margin: 100px 0;
+  }
+
+  .card-banner{
+    margin: 50px 0;
+  }
+
+
 }
 
 
@@ -1289,3 +1328,26 @@ body {
 .tanlov {
 color: rgb(255, 0, 0) !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  object-fit: cover; /* Video konteynerga moslashadi */
+  z-index: -1; /* Video boshqa elementlarning orqasida bo'ladi */
+}
+

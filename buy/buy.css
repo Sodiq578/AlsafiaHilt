@@ -1,0 +1,108 @@
+/* General styles for buy page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+  }
+  
+  /* Header styles for buy page */
+  .buy-header {
+    text-align: center;
+    background-color: #3e8e41; /* Greenish background for buy page */
+    color: white;
+    padding: 30px;
+  }
+  
+  .buy-header-title {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  /* Purchase Form Styles */
+  .buy-form-section {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .buy-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  .buy-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .buy-form-label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .buy-form-input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .buy-form-button {
+    padding: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  
+  .buy-form-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Modal Styles for Confirmation */
+  .buy-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .buy-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 350px;
+  }
+  
+  .buy-modal-text {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .buy-modal-button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .buy-modal-button:hover {
+    background-color: #45a049;
+  }
+  
