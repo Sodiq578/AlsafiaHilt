@@ -413,17 +413,17 @@ body {
 }
 
 
-.navbar-item{
-  color: red !important;
-}
+
 
 .navbar-link {
   position: relative;
   font-family: var(--segoeUI);
   font-weight: var(--regular);
   color: var(--richBlack);
+  font-size: 18px;
+  margin: 30px 0;
   padding-block: 8px;
-  transition: var(--transition-1);
+ 
 }
 
 .navbar-link::before {
@@ -1350,4 +1350,102 @@ color: rgb(255, 0, 0) !important;
   object-fit: cover; /* Video konteynerga moslashadi */
   z-index: -1; /* Video boshqa elementlarning orqasida bo'ladi */
 }
+
+
+
+
+.red-text {
+  color: red !important;
+}
+
+
+.section-title {
+  color: white !important; /* Make the text color white */
+  font-size: 30px !important; /* Reduce the font size */
+  text-align: center;
+  font-weight: 600;
+}
+
+
+
+.footer-img{
+  margin: 0 auto;
+}
+
+
+
+
+
+.about-img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column1, .column2 {
+  width: 48%;
+  margin-bottom: 15px;
+}
+
+.card-banner {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.img-cover {
+  width: 100% !important;
+ height: 274px !important;
+  object-fit: cover;
+}
+
+.about-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.about-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .column1, .column2 {
+    width: 100%;
+  }
+}
+
+
+.contact-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  gap: 20px;
+}
+
+.contact-info p{
+  display: flex;
+  align-items: center;
+
+
+}
+
+
+
+
+/* 
+
+.location-card{
+  border-radius: 50px;
+} */
+
+
+
+
 

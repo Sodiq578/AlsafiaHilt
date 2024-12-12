@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.4/dist/ionicons.js"></script>
 </head>
-<body>
+<body style="background-color: #000; color: white;">
 
   <header class="buy-header">
     <h1 class="buy-header-title">Sotib olish</h1>
@@ -21,27 +21,93 @@
       <label for="fullName" class="buy-form-label">To'liq ism:</label>
       <input type="text" id="fullName" name="fullName" required class="buy-form-input">
 
-      <label for="email" class="buy-form-label">Email:</label>
-      <input type="email" id="email" name="email" required class="buy-form-input">
-
       <label for="phone" class="buy-form-label">Telefon raqami:</label>
       <input type="tel" id="phone" name="phone" required class="buy-form-input">
 
       <label for="address" class="buy-form-label">Yetkazib berish manzili:</label>
-      <input type="text" id="address" name="address" required class="buy-form-input">
+      <textarea id="address" name="address" required class="buy-form-input" rows="4"></textarea>
+
+      <label for="productCount" class="buy-form-label">Maxsulot soni:</label>
+      <input type="number" id="productCount" name="productCount" min="1" value="1" required class="buy-form-input">
+
+      <p class="buy-form-label">Maxsulot narxi: <span id="price">890,000</span> UZS</p>
+      <p class="buy-form-label">Umumiy narx: <span id="totalPrice">890,000</span> UZS</p>
 
       <button type="submit" class="buy-form-button">Buyurtma berish</button>
+      <button type="button" id="homeButton" class="buy-form-button" style="background-color: red;">Homega qaytish</button>
     </form>
   </section>
 
   <!-- Confirmation Modal -->
   <div id="orderModal" class="buy-modal">
     <div class="buy-modal-content">
-      <p class="buy-modal-text">Sizning buyurtmangiz qabul qilindi. Tez orada bizning operatorlarimiz bog'lanadi.</p>
+      <ion-icon name="alert-circle" style="font-size: 3rem; color: red;"></ion-icon>
+      <p class="buy-modal-text">Yangi buyurtma qabul qilindi. Tez orada bizning operatorlarimiz bog'lanadi.</p>
       <button id="closeModal" class="buy-modal-button">Yopish</button>
     </div>
   </div>
 
-  <script src="buy.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buyForm = document.getElementById('buyForm');
+      const orderModal = document.getElementById('orderModal');
+      const closeModal = document.getElementById('closeModal');
+      const productCountInput = document.getElementById('productCount');
+      const totalPriceElement = document.getElementById('totalPrice');
+      const homeButton = document.getElementById('homeButton');
+
+      const pricePerProduct = 890000;
+
+      productCountInput.addEventListener('input', () => {
+        const productCount = parseInt(productCountInput.value) || 1;
+        totalPriceElement.textContent = (pricePerProduct * productCount).toLocaleString('uz-UZ');
+      });
+
+      buyForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(buyForm);
+        const data = {
+          fullName: formData.get('fullName'),
+          phone: formData.get('phone'),
+          address: formData.get('address'),
+          productCount: formData.get('productCount'),
+          totalPrice: pricePerProduct * parseInt(formData.get('productCount'))
+        };
+
+        orderModal.style.display = 'flex';
+        sendOrderToTelegram(data);
+      });
+
+      closeModal.addEventListener('click', () => {
+        orderModal.style.display = 'none';
+        buyForm.reset();
+        totalPriceElement.textContent = pricePerProduct.toLocaleString('uz-UZ');
+      });
+
+      homeButton.addEventListener('click', () => {
+        window.location.href = '/'; // Change to your homepage URL
+      });
+
+      function sendOrderToTelegram(orderData) {
+        const telegramToken = '7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0';
+        const chatId = '5838205785';
+        const message = `\u{1F6D2} Yangi buyurtma:\n\nTo'liq ism: ${orderData.fullName}\nTelefon raqami: ${orderData.phone}\nYetkazib berish manzili: ${orderData.address}\nMaxsulot soni: ${orderData.productCount}\nUmumiy narx: ${orderData.totalPrice.toLocaleString('uz-UZ')} UZS`;
+
+        const telegramApiUrl = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+        fetch(telegramApiUrl)
+          .then(response => response.json())
+          .then(data => {
+            if (data.ok) {
+              console.log('Order sent to Telegram');
+            } else {
+              console.log('Error sending order to Telegram');
+            }
+          })
+          .catch(error => console.error('Error:', error));
+      }
+    });
+  </script>
 </body>
 </html>

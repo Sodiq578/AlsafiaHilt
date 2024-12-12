@@ -62,7 +62,6 @@ const displayWorks = (workItems) => {
                 <div class="workBox-right" data-aos="fade-up">
                   <p class="workBox-title">${item.title}</p>
                   <p class="workBox-text p">${item.description}</p>
-                  <p class="workBox-category">${item.category} ${item.others}</p>
                   <a href="./buy/buy.html" target="_blank" class="btn btn-primary">Sotib olish
                     <ion-icon name="arrow-forward-outline"></ion-icon></a>
                 </div>
