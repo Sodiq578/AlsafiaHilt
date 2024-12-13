@@ -3,7 +3,8 @@ export const project = [
     id: 8,
     title: "HLT Plus",
     description: "HLT Plus erkaklarda jinsiy faollikni oshiradi, kuch va chidamlilikni yaxshilaydi. Tabiiy ingredientlar yordamida testosteron ishlab chiqarishni rag'batlantiradi.",
-    img: "./assets/img/HiLTRasim2.jpg",
+    img: "./assets/img/hiltRasim2.jpg",
+    
   },
   {
     id: 7,
