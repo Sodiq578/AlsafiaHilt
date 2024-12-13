@@ -110,3 +110,60 @@ closeModal.addEventListener("click", () => {
   quantityElement.textContent = quantity;
   updateTotalPrice(); // Update total price
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Modalni ko'rsatish uchun misol
+document.getElementById("showModalButton").addEventListener("click", function() {
+  document.getElementById("successModal").style.display = "flex";
+});
+
+// Modalni yopish uchun
+document.getElementById("closeModal").addEventListener("click", function() {
+  document.getElementById("successModal").style.display = "none";
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// buy.js
+
+// Get the modal and the close button
+const modal = document.getElementById('successModal');
+const closeModalButton = document.getElementById('closeModal');
+
+// Add event listener to close the modal and redirect to home
+closeModalButton.addEventListener('click', function() {
+    modal.style.display = 'none'; // Hide the modal
+    window.location.href = 'index.html'; // Redirect to index.html
+});
+
+// Example of showing the modal after the form is successfully submitted
+const orderForm = document.getElementById('orderForm');
+
+orderForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    modal.style.display = 'block'; // Show the modal
+});

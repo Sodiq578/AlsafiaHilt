@@ -126,9 +126,10 @@ input[type="text"]:focus, input[type="number"]:focus {
 .total-price {
   font-size: 20px;
   font-weight: bold;
-  color: #d32f2f; /* Red color for total price */
-  text-align: right;
+ 
+  
   margin-bottom: 20px;
+  text-align: center !important;
 }
 
 button[type="submit"] {
@@ -223,5 +224,255 @@ button[type="submit"]:hover {
 
   button[type="submit"] {
     padding: 12px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    overflow: hidden;
+}
+
+.new-container {
+    max-width: 600px;
+    width: 100%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin-top: -150px;
+}
+
+.telefon-inp{
+  
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #4caf50; /* Green border */
+  border-radius: 6px;
+  background-color: #e8f5e9 !important; /* Light green background */
+  box-sizing: border-box;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+
+.telefon-inp:focus{
+  background-color: #fff !important;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: none; /* Green border */
+    border-radius: 6px;
+    background-color: #e8f5e9; /* Light green background */
+    box-sizing: border-box;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.telefon-inp , input[type="text"]:focus {
+    border-color: #388e3c; /* Darker green on focus */
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(56, 142, 60, 0.6); /* Green shadow */
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #ff9800; /* Orange background */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #f57c00; /* Darker orange on hover */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.quantity-controls button {
+    padding: 12px 20px;
+    background-color: #388e3c; /* Blue background */
+    font-weight: bold;
+}
+
+.quantity-controls button:hover {
+    background-color: #1976d2; /* Darker blue on hover */
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4caf50; /* Green color for total price */
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #4caf50; /* Green background */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .new-container {
+        margin-top: -150px; /* Adjust to center better */
+    }
+
+    .quantity-controls {
+        gap: 15px;
+    }
+
+    .total-price {
+        font-size: 18px;
+    }
+
+    button[type="submit"] {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .new-container {
+        margin-top: -120px;
+    }
+
+    .quantity-controls button {
+        padding: 10px 15px;
+    }
+
+    .total-price {
+        font-size: 16px;
+       
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+    }
+}
+
+}
+
+
+
+
+
+
+
+
+/* Modal fonini oq qilish */
+.modal {
+  display: none; /* Modal boshlanishda ko'rsatilmasin */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(66, 64, 63, 0.9); /* Oq fon */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Modal ichidagi kontent */
+.modal-content {
+  background-color: #ffffff; /* Oq fon */
+  color: #333333; /* Qora rang matn */
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: modalAnimation 0.3s ease-out;
+}
+
+/* Modalda yozuv va tugma uslubi */
+h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #4caf50; /* Yashil rang */
+  margin-bottom: 15px;
+}
+
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #4caf50; /* Yashil rang */
+}
+
+/* Tugma va sticker */
+button {
+  background-color: #4caf50; /* Yashil rang fon */
+  color: white; /* Oq matn */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #45a049; /* Tugma hoverda qorayadi */
+}
+
+button:focus {
+  outline: none; /* Tugma ustiga bosilganda chiziqlarni olib tashlaydi */
+}
+
+/* Modal animatsiyasi */
+@keyframes modalAnimation {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
   }
 }
