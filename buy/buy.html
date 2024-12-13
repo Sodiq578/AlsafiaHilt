@@ -1,113 +1,57 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sotib olish</title>
-  <link rel="stylesheet" href="./buy.css"> <!-- Link to your shared styles -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/ionicons@5.5.4/dist/ionicons.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxsulot Buyurtma</title>
+    <link rel="stylesheet" href="./buy.css">
 </head>
-<body style="background-color: #000; color: white;">
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="../assets/img/sotibOlishVid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-  <header class="buy-header">
-    <h1 class="buy-header-title">Sotib olish</h1>
-  </header>
+    <button class="back-button" onclick="history.back()">&#8592;</button>
 
-  <!-- Purchase Form Section -->
-  <section class="buy-form-section">
-    <h2 class="buy-form-title">Buyurtma qilish</h2>
-    <form id="buyForm" class="buy-form">
-      <label for="fullName" class="buy-form-label">To'liq ism:</label>
-      <input type="text" id="fullName" name="fullName" required class="buy-form-input">
-
-      <label for="phone" class="buy-form-label">Telefon raqami:</label>
-      <input type="tel" id="phone" name="phone" required class="buy-form-input">
-
-      <label for="address" class="buy-form-label">Yetkazib berish manzili:</label>
-      <textarea id="address" name="address" required class="buy-form-input" rows="4"></textarea>
-
-      <label for="productCount" class="buy-form-label">Maxsulot soni:</label>
-      <input type="number" id="productCount" name="productCount" min="1" value="1" required class="buy-form-input">
-
-      <p class="buy-form-label">Maxsulot narxi: <span id="price">890,000</span> UZS</p>
-      <p class="buy-form-label">Umumiy narx: <span id="totalPrice">890,000</span> UZS</p>
-
-      <button type="submit" class="buy-form-button">Buyurtma berish</button>
-      <button type="button" id="homeButton" class="buy-form-button" style="background-color: red;">Homega qaytish</button>
+    <div class="new-container">
+      <h1>Maxsulot Buyurtma</h1>
+      <form id="orderForm">
+        <div class="form-group">
+            <input type="text" id="name" placeholder="To'liq ism" required>
+        </div>
+    
+        <div class="form-group">
+            <input type="text" id="phone" placeholder="Telefon raqami" required>
+        </div>
+    
+        <div class="form-group">
+            <input type="text" id="address" placeholder="Manzil" required>
+        </div>
+    
+        <div class="quantity-controls">
+            <button type="button" id="decrease">-</button>
+            <span id="quantity">1</span>
+            <button type="button" id="increase">+</button>
+        </div>
+    
+        <div class="total-price">
+            Umumiy narx: <span id="totalPrice">890,000</span> so'm
+        </div>
+    
+        <button type="submit">Buyurtma berish</button>
     </form>
-  </section>
-
-  <!-- Confirmation Modal -->
-  <div id="orderModal" class="buy-modal">
-    <div class="buy-modal-content">
-      <ion-icon name="alert-circle" style="font-size: 3rem; color: red;"></ion-icon>
-      <p class="buy-modal-text">Yangi buyurtma qabul qilindi. Tez orada bizning operatorlarimiz bog'lanadi.</p>
-      <button id="closeModal" class="buy-modal-button">Yopish</button>
+    
     </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const buyForm = document.getElementById('buyForm');
-      const orderModal = document.getElementById('orderModal');
-      const closeModal = document.getElementById('closeModal');
-      const productCountInput = document.getElementById('productCount');
-      const totalPriceElement = document.getElementById('totalPrice');
-      const homeButton = document.getElementById('homeButton');
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>Buyurtma qabul qilindi!</h2>
+            <p>Rahmat! Buyurtmangiz tez orada yetkazib beriladi.</p>
+            <button id="closeModal">Yopish</button>
+        </div>
+    </div>
 
-      const pricePerProduct = 890000;
-
-      productCountInput.addEventListener('input', () => {
-        const productCount = parseInt(productCountInput.value) || 1;
-        totalPriceElement.textContent = (pricePerProduct * productCount).toLocaleString('uz-UZ');
-      });
-
-      buyForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(buyForm);
-        const data = {
-          fullName: formData.get('fullName'),
-          phone: formData.get('phone'),
-          address: formData.get('address'),
-          productCount: formData.get('productCount'),
-          totalPrice: pricePerProduct * parseInt(formData.get('productCount'))
-        };
-
-        orderModal.style.display = 'flex';
-        sendOrderToTelegram(data);
-      });
-
-      closeModal.addEventListener('click', () => {
-        orderModal.style.display = 'none';
-        buyForm.reset();
-        totalPriceElement.textContent = pricePerProduct.toLocaleString('uz-UZ');
-      });
-
-      homeButton.addEventListener('click', () => {
-        window.location.href = '/'; // Change to your homepage URL
-      });
-
-      function sendOrderToTelegram(orderData) {
-        const telegramToken = '7747931873:AAEx8TM-ddgYOQtnr6cyGGnT1nzC7ElG4u0';
-        const chatId = '5838205785';
-        const message = `\u{1F6D2} Yangi buyurtma:\n\nTo'liq ism: ${orderData.fullName}\nTelefon raqami: ${orderData.phone}\nYetkazib berish manzili: ${orderData.address}\nMaxsulot soni: ${orderData.productCount}\nUmumiy narx: ${orderData.totalPrice.toLocaleString('uz-UZ')} UZS`;
-
-        const telegramApiUrl = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-        fetch(telegramApiUrl)
-          .then(response => response.json())
-          .then(data => {
-            if (data.ok) {
-              console.log('Order sent to Telegram');
-            } else {
-              console.log('Error sending order to Telegram');
-            }
-          })
-          .catch(error => console.error('Error:', error));
-      }
-    });
-  </script>
+    <script src="./buy.js"></script>
 </body>
 </html>

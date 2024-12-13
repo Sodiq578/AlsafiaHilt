@@ -1,108 +1,227 @@
-/* General styles for buy page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222; /* Dark background */
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.new-container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  color: #333;
+  position: relative; /* Ensure it stays on top of background video */
+  overflow-y: auto; /* Allow scrolling inside the container */
+  height: auto; /* Allow height to adjust based on content */
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(255, 0, 0, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1; /* Ensure button is on top */
+}
+
+.back-button:hover {
+  background: rgba(255, 0, 0, 1);
+}
+
+h1 {
+  text-align: center;
+  color: #d32f2f; /* Red color for title */
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: none; /* Red border */
+  border-radius: 6px;
+  background-color: #fce4ec; /* Soft pink background */
+  box-sizing: border-box;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: #2fb2d3; /* Dark red border on focus */
+  background-color: #ffffff; /* White background on focus */
+  box-shadow: 0 0 8px rgba(47, 197, 211, 0.6); /* Soft red shadow */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.quantity-controls button {
+  padding: 12px 20px;
+  background-color: #f44336; /* Red background */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.quantity-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.total-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d32f2f; /* Red color for total price */
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #4caf50; /* Green background */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #388e3c; /* Darker green on hover */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #d32f2f; /* Red color for modal header */
+}
+
+.modal-content button {
+  padding: 12px 25px;
+  background-color: #f44336; /* Red background */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .new-container {
+    margin-top: -150px; /* Adjust to center better */
   }
-  
-  /* Header styles for buy page */
-  .buy-header {
-    text-align: center;
-    background-color: #3e8e41; /* Greenish background for buy page */
-    color: white;
-    padding: 30px;
+
+  .quantity-controls {
+    gap: 15px;
   }
-  
-  .buy-header-title {
-    font-size: 2.5rem;
-    margin: 0;
+
+  .total-price {
+    font-size: 18px;
   }
-  
-  /* Purchase Form Styles */
-  .buy-form-section {
-    max-width: 700px;
-    margin: 50px auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .buy-form-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #333;
-  }
-  
-  .buy-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .buy-form-label {
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  .buy-form-input {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .buy-form-button {
+
+  button[type="submit"] {
     padding: 14px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
   }
-  
-  .buy-form-button:hover {
-    background-color: #45a049;
+}
+
+@media (max-width: 480px) {
+  .new-container {
+    margin-top: -120px; /* Adjust for smaller screens */
   }
-  
-  /* Modal Styles for Confirmation */
-  .buy-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
+
+  .quantity-controls button {
+    padding: 10px 15px;
   }
-  
-  .buy-modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    width: 350px;
+
+  .total-price {
+    font-size: 16px;
   }
-  
-  .buy-modal-text {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-  }
-  
-  .buy-modal-button {
+
+  button[type="submit"] {
     padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
-  
-  .buy-modal-button:hover {
-    background-color: #45a049;
-  }
-  
+}
