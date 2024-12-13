@@ -10,13 +10,13 @@ export const project = [
     id: 7,
     title: "HLT Plus",
     description: "HLT Plus ayollarda libidoni oshiradi va jinsiy aloqaning davomiyligini yaxshilaydi. Foydalanishdan so'ng tez-tez jinsiy faollikni oshiradi.",
-    img: "./assets/img/HiLTRasim1.jpg",
+    img: "./assets/img/hiltRasim1.jpg",
   },
   {
     id: 6,
     title: "HLT Plus",
     description: "HLT Plus yordamida jinsiy faollikni oshiradi va energiya darajasini yuqori tutadi, bu organizmga ijobiy ta'sir ko'rsatadi.",
-    img: "./assets/img/HiLTRasim3.jpg",
+    img: "./assets/img/hiltRasim3.jpg",
   },
   {
     id: 5,
