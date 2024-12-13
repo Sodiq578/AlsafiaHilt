@@ -172,8 +172,9 @@ body {
 .h1 {
   font-size: var(--size40);
   font-weight: var(--light);
-   
+   font-weight: 700;
   line-height: 1.5;
+  
 }
 
 .img-holder {
