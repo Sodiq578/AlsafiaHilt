@@ -33,7 +33,7 @@ export const project = [
     id: 3,
     title: "HLT Plus",
     description: "HLT Plus yordamida jinsiy faollikni oshirish va kuchni kuchaytirish imkoniyati yaratiladi. Jinsiy aloqaning davomiyligini yaxshilaydi.",
-    img: "./assets/img/hiltRasim6.jpg",
+    img: "./assets/img/hiltRasim6.JPG",
   },
   {
     id: 2,
