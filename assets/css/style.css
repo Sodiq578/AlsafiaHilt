@@ -1206,9 +1206,31 @@ body {
 
 
 
+/* Sodiqjon Icon Styling */
+.sodiqjon {
+  width: 20px; /* Ikonkaning kichik o'lchami */
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 5px;
+  transition: transform 0.3s ease; /* Hover effekti uchun */
+}
 
+/* Hover effect for icon */
+.sodiqjon:hover {
+  transform: scale(1.2); /* Ikonkaning kattalashishi */
+}
 
+/* Developer Link Styling */
+.developer-link {
+  color: #0077b5; /* Link rangi (Telegramning asosiy rangi) */
+  text-decoration: none;
+  font-weight: bold;
+}
 
+.developer-link:hover {
+  text-decoration: underline;
+  color: #005f8b; /* Hover holatida rangni o'zgartirish */
+}
 
 
 

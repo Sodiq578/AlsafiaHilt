@@ -49,7 +49,7 @@ function sendToTelegram(name, phone, address, quantity, totalPrice) {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Xabar botga muvaffaqiyatli yuborildi", data);
+      console.log("Xabar botga muvaffaqiyatli yuuborildi ", data);
     })
     .catch((error) => {
       console.error("Xabar yuborishda xato yuz berdi", error);
