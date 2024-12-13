@@ -247,6 +247,7 @@ button[type="submit"]:hover {
     align-items: center;
     background-color: #f4f4f4;
     overflow: hidden;
+    padding-top: 200px;
 }
 
 .new-container {
