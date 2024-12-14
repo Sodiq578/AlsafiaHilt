@@ -3,7 +3,7 @@ import { project } from "./project.js";
 /**
  * Preload Images
  */
-
+ 
 const preload = document.querySelector("[data-preloader]");
 
 window.addEventListener("load", () => {
@@ -47,27 +47,26 @@ window.addEventListener("scroll", () => {
 /**
  * Project List
  */
-
 const workList = document.querySelector(".work-list");
 
 const displayWorks = (workItems) => {
   let displayWork = workItems.map((item) => {
     return `
-          <li class="work-item">
-                <div class="workBox-left" data-aos="zoom-in-left">
-                  <div class="card-banner img-holder" style="--width: 594; --height:100%;">
-                    <img src="${item.img}" width="594" height="491" alt="Project Image" class="img-cover">
-                  </div>
-                </div>
-                <div class="workBox-right" data-aos="fade-up">
-                  <p class="workBox-title">${item.title}</p>
-                  <p class="workBox-text p">${item.description}</p>
-                  <a href="./buy/buy.html" target="_blank" class="btn btn-primary">Sotib olish
-                    <ion-icon name="arrow-forward-outline"></ion-icon></a>
-                </div>
-              </li>`;
-              
+      <li class="work-item custom-class"> <!-- Custom class qo'shildi -->
+        <div class="workBox-left" data-aos="zoom-in-left">
+          <div class="card-banner img-holder custom-img-holder"> <!-- Custom img holder -->
+            <img src="${item.img}" width="594" height="491" alt="Project Image" class="img-cover custom-img-cover"> <!-- Custom img cover -->
+          </div>
+        </div>
+        <div class="workBox-right" data-aos="fade-up">
+          <p class="workBox-title">${item.title}</p>
+          <p class="workBox-text p">${item.description}</p>
+          <a href="./buy/buy.html" target="_blank" class="btn btn-primary">Sotib olish
+            <ion-icon name="arrow-forward-outline"></ion-icon></a>
+        </div>
+      </li>`;
   });
+
   displayWork = displayWork.join("");
   workList.innerHTML += displayWork;
 };
