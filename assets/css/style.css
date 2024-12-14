@@ -1440,7 +1440,7 @@ color: rgb(255, 0, 0) !important;
 
 .img-cover {
   width: 100% !important;
- height: 274px !important;
+ height: 400px !important;
   object-fit: cover;
 }
 
@@ -1460,6 +1460,10 @@ color: rgb(255, 0, 0) !important;
 @media (max-width: 768px) {
   .column1, .column2 {
     width: 100%;
+  }
+
+  .img-cover-kichik-rasim{
+    width: 200px;
   }
 }
 
@@ -1491,5 +1495,10 @@ color: rgb(255, 0, 0) !important;
 
 
 
+
+
+.custom-img-cover{
+  height: 700px !important;
+}
 
 
