@@ -188,10 +188,9 @@ body {
 }
 
 .img-cover {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-
+  width: 100%;        /* Kenglikni 100% qilish */
+  height: 600px;      /* Maxsus balandlik, misol uchun 400px */
+  object-fit: cover;  /* Rasmni konteynerni to'ldirish uchun o'lchamni o'zgartirish */
 }
 
 .card-banner {
@@ -314,39 +313,33 @@ body {
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-
+/* Header Styles */
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding:50px 20px; /* Headerga umumiy padding qo'shish */
 }
 
-.header {
-  padding-block: 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 4;
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px; /* Logo va burger o'rtasida bo'sh joy qoldirish */
 }
 
-.header.active {
-  padding-block: 20px;
-  position: fixed;
-  background-color: var(--richBlack);
-  animation: slideIn 500ms ease forwards;
+.logo img {
+  max-width: 150px; /* Logo o'lchamini kerakli qilib sozlang */
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
-@keyframes slideIn {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
+.logo:hover img {
+  transform: scale(1.1); /* Hover effekti uchun o'lchamni kattalashtirish */
 }
 
+/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0px;
@@ -358,7 +351,6 @@ body {
   flex-direction: column;
   gap: 20px;
   background-color: #fff;
-
   padding: 30px 16px;
   visibility: hidden;
   opacity: 0;
@@ -375,6 +367,7 @@ body {
 
 .navbar .nav-toggle-btn {
   align-self: flex-end;
+  padding-left: 20px; /* Burger ikonasining o'ng tomonidan bo'sh joy */
 }
 
 .nav-toggle-btn .hamburger-icon {
@@ -383,13 +376,14 @@ body {
 }
 
 .nav-toggle-btn .hamburger-path {
-  stroke: var(--platinum1);
+  stroke: #FF5733; /* Olov rangini berish */
   transition: var(--transition-1);
 }
 
 .nav-toggle-btn:hover .hamburger-path:nth-child(1) {
   transform: translateX(-4px);
 }
+
 .nav-toggle-btn:hover .hamburger-path:nth-child(2) {
   transform: translateX(4px);
 }
@@ -404,47 +398,6 @@ body {
   -webkit-transform: rotateZ(90deg);
   -moz-transform: rotateZ(90deg);
   transform: rotateZ(90deg);
-}
-
-.navbar-list {
-  font-size: 30px;
-  margin-block-start: 50px;
-  margin-inline-start: 10px;
-  
-}
-
-
-
-
-.navbar-link {
-  position: relative;
-  font-family: var(--segoeUI);
-  font-weight: var(--regular);
-  color: var(--richBlack);
-  font-size: 18px;
-  margin: 30px 0;
-  padding-block: 8px;
- 
-}
-
-.navbar-link::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -13px;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 20px;
-  background-color: var(--richBlack);
-  opacity: 0;
-  border-radius: 5px;
-  transition: var(--transition-1);
-}
-.navbar-link:is(:hover, :focus-visible, .active)::before {
-  opacity: 1;
-}
-.navbar-link:is(:hover, :focus-visible, .active) {
-  transform: translateX(10px);
 }
 
 /*-----------------------------------*\
@@ -487,10 +440,7 @@ body {
 .workBox-left {
   margin-bottom: 30px;
 }
-.workBox-left .card-banner {
-  position: relative;
-  border-radius: var(--radius-20);
-}
+
 
 .workBox-right {
   display: grid;
@@ -555,14 +505,8 @@ body {
   aspect-ratio: auto / var(--height);
 }
 
-.about-img-wrapper .card-banner {
-  border-radius: var(--radius-20);
-}
 
-.about-img-wrapper .img-cover {
-  width: auto;
-  height: 100%;
-}
+
 
 /*-----------------------------------*\
   #CTA
@@ -750,10 +694,6 @@ body {
     order: 1;
   }
 
-  .workBox-left .card-banner {
-    position: relative;
-    border-radius: var(--radius-20);
-  }
 
   .workBox-right {
     display: flex;
@@ -1078,14 +1018,8 @@ body {
     aspect-ratio: auto / var(--height);
   }
 
-  .about-img-wrapper .card-banner {
-    border-radius: var(--radius-20);
-  }
 
-  .about-img-wrapper .img-cover {
-    width: auto;
-    height: 100%;
-  }
+  
 }
 
 /**
@@ -1198,10 +1132,7 @@ body {
     text-align: center; /* Matnni markazlashtiradi */
   }
 
-  .hero-img {
-    margin: 20px 0; /* Mobil qurilmada rasmga joy qoldiradi */
-    max-width: 80%; /* Kengligini moslashtiradi */
-  }
+ 
 }
 
 
@@ -1280,10 +1211,29 @@ body {
   height: auto;
   object-fit: cover;
   margin-left: 20px;
- 
+  animation: pulseAnimation 2s infinite;
+  transform: rotate(-0.5deg); /* Chapga aylantirish */
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5); /* So'ya effekti */
+  margin-top: -0px !important;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: rotate(-0.5deg) scale(1); /* Boshlang'ich holat: chapga aylantirish va normal o'lcham */
+  }
+  50% {
+    transform: rotate(-0.5deg) scale(1.1); /* Katta o'lcham (ko'proq kattalashish) */
+  }
+  100% {
+    transform: rotate(-0.5deg) scale(1); /* Yana eski o'lchamga qaytish */
+  }
 }
 
 @media (max-width: 768px) {
+
+  .hero {
+    padding-top: 200px !important;
+  }
   .hero-content {
     flex-direction: column;
     text-align: center;
@@ -1294,7 +1244,9 @@ body {
     max-width: 100%;
     transform: scale(2.2);
     margin: 152px 0px;
-    
+    width: 300px;
+    height: 480px;
+    /* transform: rotate(-15deg); */
   }
 
   .section{
@@ -1327,7 +1279,7 @@ body {
 .hero {
   position: relative; /* Video ustiga elementlar joylashishi uchun */
   padding-block-end: 0;
-  padding-top: 100px;
+  padding-top: 0px !important;
 }
 
 .hero .container {
@@ -1410,18 +1362,7 @@ color: rgb(255, 0, 0) !important;
   margin-bottom: 15px;
 }
 
-.card-banner {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  border-radius: 8px;
-}
 
-.img-cover {
-  width: 100% !important;
- height: 274px !important;
-  object-fit: cover;
-}
 
 .about-text {
   font-size: 16px;
@@ -1472,3 +1413,61 @@ color: rgb(255, 0, 0) !important;
 
 
 
+
+/* Umumiy stilar */
+.card-banner {
+  position: relative;
+  border-radius: var(--radius-20);
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* Containerni responsiv qilish */
+.about-img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Elementlar orasidagi bo'shliq */
+}
+
+/* Kichik ekranlar uchun (mobil) */
+@media (max-width: 768px) {
+  .column1, .column2 {
+    width: 100%; /* Har bir ustunni to'liq kenglikka ajratish */
+  }
+  
+  /* Ikki rasmdan kichikroq rangli tasvirlar */
+  .about-img-wrapper .card-banner {
+    width: 100%;
+    height: 300px; /* Rasm balandligini kichraytirish */
+  }
+  
+  .about-img-wrapper .column2 .card-banner:nth-child(1),
+  .about-img-wrapper .column2 .card-banner:nth-child(2) {
+    width: 48%; /* Ikki rasmni yonma-yon joylashtirish */
+    height: 200px;
+  }
+}
+
+/* Keng ekranlar uchun (desktop) */
+@media (min-width: 768px) {
+  .column1 {
+    width: 48%; /* Birinchi ustun uchun 48% kenglik */
+  }
+  
+  .column2 {
+    width: 48%; /* Ikkinchi ustun uchun 48% kenglik */
+  }
+  
+  /* Balandlikni saqlash */
+  .about-img-wrapper .card-banner {
+    height: 400px;
+  }
+}
