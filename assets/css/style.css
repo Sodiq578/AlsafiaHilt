@@ -1108,6 +1108,7 @@ body {
 
   .hero-content .h1 {
     font-size: 39px;
+   
   }
 
   /*
@@ -1498,7 +1499,7 @@ color: rgb(255, 0, 0) !important;
 
 
 .custom-img-cover{
-  height: 700px !important;
+  height: 500px !important;
 }
 
 
