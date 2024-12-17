@@ -258,3 +258,83 @@ button[type="submit"]:hover {
 }
 
 
+
+
+
+
+/* form-group umumiy uslubi */
+.form-group {
+  margin-bottom: 15px; /* Har bir element orasida bo'shliq */
+  display: flex;
+  flex-direction: column;
+}
+
+/* input, select va textarea elementlarining umumiy uslubi */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+}
+
+/* input, select va textarea ustida hover effekti */
+.form-group input:hover, 
+.form-group select:hover, 
+.form-group textarea:hover {
+  border-color: #007bff;
+  background-color: #f1f9ff;
+}
+
+/* input va select elementlari focus holatida */
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #eaf4ff;
+}
+
+/* placeholder uchun stil */
+.form-group input::placeholder, 
+.form-group select::placeholder, 
+.form-group textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Select element uchun maxsus stil */
+.form-group select {
+  cursor: pointer;
+}
+
+/* Submit tugmasi uchun stil */
+form button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Submit tugmasi ustida hover effekti */
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Video fonni butun ekranni qamrab oladigan qilib sozlash */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Video ortda bo'lsin */
+}
