@@ -70,3 +70,26 @@ const displayWorks = (workItems) => {
   displayWork = displayWork.join("");
   workList.innerHTML += displayWork;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

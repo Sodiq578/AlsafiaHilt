@@ -12,45 +12,45 @@
         Your browser does not support the video tag.
     </video>
 
-   <a href="../index.html">
-    <button class="back-button" onclick="history.back()">&#8592;</button>
-   </a>
+    <a href="../index.html">
+        <button class="back-button" onclick="history.back()">&#8592;</button>
+    </a>
 
     <div class="new-container">
-      <h1>Buyurtma berish</h1>
-      <form id="orderForm">
-        <div class="form-group">
-            <input type="text" id="name" placeholder="To'liq ism" required>
-        </div>
-    
-        <div class="form-group">
-            <input class="telefon-inp" type="number" id="phone" placeholder="Telefon raqami" required>
-        </div>
+        <h1>Buyurtma berish</h1>
+        <form id="orderForm">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="To'liq ism" required>
+            </div>
+        
+            <div class="form-group">
+                <input class="telefon-inp" type="number" id="phone" placeholder="Telefon raqami" required>
+            </div>
 
-        <div class="form-group">
-            <select id="time" required>
-                <option value="" disabled selected>Kunning qaysi vaqtida murojaat qilaylik?</option>
-                <option value="first-half">Kunning birinchi yarmida</option>
-                <option value="second-half">Kunning ikkinchi yarmida</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <select id="time" required>
+                    <option value="" disabled selected>Kunning qaysi vaqtida murojaat qilaylik?</option>
+                    <option value="first-half">Kunning birinchi yarmida</option>
+                    <option value="second-half">Kunning ikkinchi yarmida</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <input type="text" id="comment" placeholder="Izoh" required>
-        </div>
-   
-        <button type="submit">Buyurtma berish</button>
-    </form>
+            <div class="form-group">
+                <input type="text" id="comment" placeholder="Izoh" required>
+            </div>
+       
+            <button type="submit">Buyurtma berish</button>
+        </form>
     </div>
 
     <div class="modal" id="successModal">
-      <div class="modal-content">
-          <h2>✅ Buyurtma qabul qilindi!</h2>
-          <p>Rahmat! Buyurtmangiz tez orada yetkazib beriladi. 🚚</p>
-          <a href="../index.html">
-            <button id="closeModal">Yopish</button>
-          </a>
-      </div>
+        <div class="modal-content">
+            <h2>✅ Buyurtma qabul qilindi!</h2>
+            <p>Rahmat! Buyurtmangiz tez orada yetkazib beriladi. 🚚</p>
+            <a href="../index.html">
+                <button id="closeModal">Yopish</button>
+            </a>
+        </div>
     </div>
 
     <script src="./buy.js"></script>

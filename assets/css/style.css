@@ -1313,7 +1313,7 @@ body {
     margin: 20px 0;
     max-width: 100%;
     transform: scale(2.2);
-    margin: 152px 0px;
+    /* margin: 52px 0px; */
     width: 300px;
     height: 480px;
     /* transform: rotate(-15deg); */
@@ -1349,7 +1349,7 @@ body {
 .hero {
   position: relative; /* Video ustiga elementlar joylashishi uchun */
   padding-block-end: 0;
-  padding-top: 100px;
+  padding-top: 0px !important;
 }
 
 .hero .container {
@@ -1432,18 +1432,36 @@ color: rgb(255, 0, 0) !important;
   margin-bottom: 15px;
 }
 
+
 .card-banner {
   width: 100%;
-  height: auto;
+  height: auto;  
   overflow: hidden;
   border-radius: 8px;
+  background-color: transparent;
 }
 
 .img-cover {
   width: 100% !important;
- height: 400px !important;
-  object-fit: cover;
+  height: auto !important;  
+  object-fit: contain; 
+  border-radius: 50px;
 }
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 .about-text {
   font-size: 16px;
@@ -1496,10 +1514,37 @@ color: rgb(255, 0, 0) !important;
 
 
 
+ 
 
 
-.custom-img-cover{
-  height: 500px !important;
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse; /* Swap order of text and image */
+    text-align: center; /* Optional: Center the text */
+  }
+
+  .image-wrapper {
+    margin-bottom: 20px; /* Optional: add space between image and text */
+  }
 }
+
+
+
+
+
+
+
+
 
 
