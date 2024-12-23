@@ -92,4 +92,90 @@ const displayWorks = (workItems) => {
 
 
 
+const token = "7659282400:AAGj3rHn_lozkep2B4tBqwoUy_fBrXh2ycU";
+const chatId = "-4698937559";
 
+// Function to get the current day in Uzbek
+const getCurrentDay = () => {
+    const days = ["Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba", "Yakshanba"];
+    const now = new Date();
+    const dayIndex = now.getDay(); // Get the current day (0-6)
+    return days[dayIndex]; // Return the name of the current day
+};
+
+// Function to get the current date and time in Uzbek format with day of the week
+const getCurrentDateTime = () => {
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.toLocaleString('uz-UZ', { month: 'long' }); // Get month in Uzbek
+    const year = now.getFullYear();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`; // Format time to HH:mm
+
+    // Return the formatted string
+    return `Bugun: ${getCurrentDay()}, ${day} ${month} ${year} yil, Soat: ${formattedTime}`;
+};
+
+const messageTemplate = (name, phone) => `
+    Yangi foydalanuchi saytga kirdi 🆕:\n
+    Ism: ${name} 📝\n
+    Telefon: ${phone} 📱\n
+    ${getCurrentDateTime()} 🕒
+`;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const registerModal = document.getElementById("registerModal");
+    const consultationModal = document.getElementById("consultationModal");
+    const overlay = document.getElementById("overlay");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    // Show the register modal on page load
+    registerModal.style.display = "block";
+    overlay.style.display = "block";  // Show the overlay when modal is open
+
+    // "Ha" button closes the register modal
+    yesBtn.addEventListener("click", () => {
+        registerModal.style.display = "none";
+        overlay.style.display = "none";  // Hide overlay when modal is closed
+    });
+
+    // "Yo'q" button shows the consultation modal
+    noBtn.addEventListener("click", () => {
+        registerModal.style.display = "none";
+        consultationModal.style.display = "block";
+        overlay.style.display = "block";  // Show overlay for consultation modal
+    });
+
+    // Close consultation modal after form submission
+    const consultationForm = document.getElementById("consultationForm");
+
+    consultationForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+
+        // Telegram bot API (Example code)
+        const message = messageTemplate(name, phone);
+        const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    consultationForm.reset();  // Reset form
+                } else {
+                    console.error("Error sending message:", data.description);
+                }
+            })
+            .catch(error => {
+                console.error("Error occurred:", error);
+            });
+
+        // Close consultation modal and hide overlay
+        consultationModal.style.display = "none";
+        overlay.style.display = "none";
+    });
+});

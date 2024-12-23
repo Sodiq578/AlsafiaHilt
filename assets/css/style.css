@@ -1548,3 +1548,141 @@ color: rgb(255, 0, 0) !important;
 
 
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.656);
+  display: none;  /* Hidden by default */
+  z-index: 100;
+}
+
+
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1000;
+  color: black;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-btn {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn {
+  padding: 10px;
+  background-color: #197745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0b6434;
+}
+
+.modal input {
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  .modal {
+    width: 90%; /* Ensure the modal doesn't take too much space on small screens */
+    padding: 15px;
+  }
+
+  .modal-btn, .submit-btn {
+    width: 100%; /* Make buttons full width */
+    padding: 12px;
+  }
+
+  .modal input {
+    padding: 10px;
+  }
+
+  .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+  }
+}
+
+/* For medium-sized screens (tablets) */
+@media (max-width: 768px) {
+  .modal {
+    width: 80%; /* Slightly larger on tablets */
+    padding: 20px;
+  }
+
+  .modal-btn, .submit-btn {
+    width: 100%; /* Full width buttons */
+  }
+}
+
+/* For larger screens (desktops) */
+@media (min-width: 769px) {
+  .modal {
+    width: 40%; /* Default modal width */
+  }
+
+  .modal-btn, .submit-btn {
+    padding: 10px 20px;
+  }
+}
+
+
+
+
+
+
+
+body.modal-open {
+  overflow: hidden;
+}
